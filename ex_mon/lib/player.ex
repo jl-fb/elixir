@@ -28,7 +28,7 @@
 defmodule ExMon.Player do
   #NOTE -> Improvements
 
-  # Create module variable
+  # Create module variable -> @ [name]
   @max_life 100
   @required_keys [:life, :move_avg, :move_heal, :move_rnd, :name]
 
