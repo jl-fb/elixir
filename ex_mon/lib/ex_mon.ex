@@ -7,10 +7,11 @@
 # NOTE -> Do not repeat the namespace, just 'alias' it
 defmodule ExMon do
 
-  #NOTE the las name of alias is usued to refer to that module. Or 'alias ExMon.Player, as: NAME_HERE
+  #NOTE the name of alias is usued to refer to that module. Or 'alias ExMon.Player, as: NAME_HERE
   alias ExMon.{Game, Player}
+  alias ExMon.Game.{Actions, Status}
 
-  ## NOTE module variable
+  ## module variable
   @computer_player_name "Robotinik"
 
   def create_player(name, move_avg, move_heal, move_rnd) do
@@ -24,5 +25,12 @@ defmodule ExMon do
     @computer_player_name
     |> create_player(:punch, :kick, :heal)
     |> Game.start(player)
+    Status.print_round_message()
+  end
+
+  ## function to the player choose  the move
+  def make_move(move) do
+    # Use the Actions module to handle actions of the game
+    Actions.fetch_move(move)
   end
 end
